@@ -1,0 +1,26 @@
+[project]
+name = "workflow-automation"
+version = "0.1.0"
+description = "A small n8n/Zapier-style workflow automation engine: declarative YAML workflows, DAG execution, templated step outputs, run-history audit trail"
+requires-python = ">=3.11"
+dependencies = [
+    "pyyaml>=6.0",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23"]
+
+[project.scripts]
+workflow-automation = "workflow_automation.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

@@ -1,0 +1,22 @@
+name: httpbin_status_check
+steps:
+  - id: fetch
+    type: http_request
+    config:
+      method: GET
+      url: https://httpbin.org/json
+
+  - id: check_ok
+    type: condition
+    depends_on: [fetch]
+    config:
+      left: "{{steps.fetch.output.status_code}}"
+      operator: "=="
+      right: 200
+
+  - id: summarize
+    type: transform
+    depends_on: [check_ok]
+    config:
+      mapping:
+        title: "{{steps.fetch.output.body.slideshow.title}}"
