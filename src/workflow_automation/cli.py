@@ -11,7 +11,7 @@ import yaml
 from workflow_automation.engine import WorkflowEngine
 from workflow_automation.http_caller import real_http_caller
 from workflow_automation.loader import parse_workflow
-from workflow_automation.models import RunStatus, StepType
+from workflow_automation.models import StepType
 from workflow_automation.steps.condition import ConditionStep
 from workflow_automation.steps.delay import DelayStep
 from workflow_automation.steps.http_request import HttpRequestStep
